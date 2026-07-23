@@ -5,7 +5,7 @@ cd "$(dirname "$0")"
 
 ARCHIVE="PTGs-GitHub-backup.tar.xz"
 OUTPUT_DIR="PTGs-restored"
-EXPECTED_SHA="c61cec57ec85ff1a59240c82659f3f027df9d75898e14bad09249eafbb05fc4c"
+EXPECTED_SHA="5df0f386adb08c41e5f83dcb1b265a094fe02772cc6d690a8ef6a01e216c21ce"
 
 PARTS=(
   "bundle_parts/tar-000.b64"
@@ -25,7 +25,7 @@ for part in "${PARTS[@]}"; do
   fi
 done
 
-TMP_B64="$(mktemp -t ptgs-archive).b64"
+TMP_B64="$(mktemp "${TMPDIR:-/tmp}/ptgs-archive.XXXXXX")"
 trap 'rm -f "$TMP_B64"' EXIT
 
 cat "${PARTS[@]}" | tr -d '\r\n' > "$TMP_B64"
