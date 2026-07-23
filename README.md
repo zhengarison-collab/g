@@ -32,7 +32,7 @@ bash 恢复PTGs工程.command
 恢复后的归档 SHA-256：
 
 ```text
-c61cec57ec85ff1a59240c82659f3f027df9d75898e14bad09249eafbb05fc4c
+5df0f386adb08c41e5f83dcb1b265a094fe02772cc6d690a8ef6a01e216c21ce
 ```
 
-仓库内 11 个数据分段均已逐一核对 Git Blob 哈希，与本地备份原件一致。
+仓库内 11 个数据分段均已逐一核对 Git Blob 哈希，与本地备份原件一致；恢复演练已成功还原 `PTGs.xcodeproj` 与 39 个 Swift 文件。
