@@ -1,13 +1,38 @@
 # PTGs iOS App
 
-这是 Terry 的 PTGs iOS / Xcode 工程公开备份仓库。
+这是 Terry 的 **PTGs iOS / Xcode 工程公开备份仓库**。
 
-## 下载与运行
+## 在 Mac 上恢复工程
 
-1. 下载仓库中的 `PTGs-iOS-project.zip`。
-2. 解压后打开 `PTGs.xcodeproj`。
-3. 使用 Xcode 16+，选择 iOS 17+ 模拟器或真机运行。
+1. 点击 GitHub 页面右上方 **Code → Download ZIP**。
+2. 解压下载的仓库。
+3. 打开“终端”，进入解压后的文件夹，运行：
 
-工程包含 SwiftUI 源码、测试、应用图标、Logo、README 与验证文档；未包含任何真实 API Key、Xcode 用户缓存或本地 Git 元数据。
+```bash
+bash 恢复PTGs工程.command
+```
 
-压缩包 SHA-256：`eef72ad17960f964ad42a0e6f4c0b5da9ef5736e589ea69c37b38dc8e88be4ce`
+脚本会自动：
+
+- 合并 `bundle_parts` 中的完整工程归档；
+- 校验 SHA-256，确认文件没有损坏；
+- 解压到 `PTGs-restored` 文件夹；
+- 在 Finder 中自动打开恢复后的工程。
+
+随后打开其中的 `PTGs.xcodeproj`，使用 Xcode 16+，选择 iOS 17+ 模拟器或真机运行。
+
+## 备份内容
+
+工程包含 SwiftUI 源码、测试、配置、Xcode 工程、README 与验证文档；已排除本地 `.git`、Xcode 用户缓存、`.DS_Store` 等无关文件。检查中未发现真实 API Key。
+
+> 受当前上传接口的二进制传输限制，备份版将原始大尺寸 PNG 图标替换为同尺寸的轻量 PTG 图标；应用源码和功能文件未改动。
+
+## 完整性校验
+
+恢复后的归档 SHA-256：
+
+```text
+c61cec57ec85ff1a59240c82659f3f027df9d75898e14bad09249eafbb05fc4c
+```
+
+仓库内 11 个数据分段均已逐一核对 Git Blob 哈希，与本地备份原件一致。
